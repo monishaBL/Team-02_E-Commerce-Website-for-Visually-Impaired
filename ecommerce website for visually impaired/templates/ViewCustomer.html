@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head><title>User list</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #6f7781;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: black;
+  font-size: 25px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+ /*#main {
+   transition: margin-left .5s;
+  padding: 16px;
+  color: white;
+  background-color: black;
+  width:100%;
+  position:fixed;
+}*/
+#main{
+transition: margin-left .5s;
+padding: 16px;
+color: white;
+background-color: #141516;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+* {
+  box-sizing: border-box;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+#customers td, #customers th {
+/* border: 1px solid #ddd; */
+  padding: 20px;
+  text-align: center;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #232F3E;
+  color: white;
+}
+
+#customers tr {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: black;
+}
+
+.button {
+background-color: white;
+border: none;
+color: black;
+padding: 12px 40px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+/* margin: 4px 2px; */
+cursor: pointer;
+border: 0.25px solid #e7e7e7;
+border-radius: 5px ;
+}
+
+button:hover {
+background-color: #232f3ea1;
+color: white;
+}
+hr{
+  height: 1px;
+        background-color: black;
+        border: none;
+}
+
+
+</style>
+</head>
+<body>
+
+   <div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="/addproduct">Add Product</a>
+<a href="/viewcustomer">List of Customer</a>
+    <a href="/viewpayment">View Payment</a>
+<a href="/viewfeedback">Product Feedback</a>
+<a href="/viewapplication"> Feedback</a>
+<a href="/message">Message</a>
+
+<a href="/adminindex">Home</a>
+</div>
+
+
+
+
+        <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:white" href="/adminindex">Dream Shopping</a></span>
+        <span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>
+        <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>
+
+</div>
+
+       <center>    <h3>View Customer</h3>
+
+
+
+
+
+<!-- This is body part -->
+<table id="customers">
+  <tr>
+              <th>Register Id</th>
+              <th>Register Name</th>
+               <th>Mail</th>
+              <th>Mobile</th>
+              <th>Current Date</th>
+              <th>Username</th>
+              <th>Password</th>
+               <th>Address</th>
+
+          </tr>
+
+
+
+    {% for row in registerlist%}
+                <tr>
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    <td>{{row.2}}</td>
+                    <td>{{row.3}}</td>
+ 	                <td>{{row.4}}</td>
+                    <td>{{row.5}}</td>
+                     <td> {{row.6}} </td>
+                    <td>{{row.7}} </td>
+
+
+	</tr>
+  {% endfor  %}
+
+
+
+</table>
+</center>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="static/assets/js/custom.js"></script>
+    <script src="static/assets/js/owl.js"></script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+</body>
+</html>

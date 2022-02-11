@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+<head><title>Feedbacks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #6f7781;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: black;
+  font-size: 25px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+ /*#main {
+   transition: margin-left .5s;
+  padding: 16px;
+  color: white;
+  background-color: black;
+  width:100%;
+  position:fixed;
+}*/
+#main{
+transition: margin-left .5s;
+padding: 16px;
+color: white;
+background-color: #141516;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+* {
+  box-sizing: border-box;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+#customers td, #customers th {
+/* border: 1px solid #ddd; */
+  padding: 20px;
+  text-align: center;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #232F3E;
+  color: white;
+}
+
+.button {
+background-color: white;
+border: none;
+color: black;
+padding: 12px 40px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+/* margin: 4px 2px; */
+cursor: pointer;
+border: 0.25px solid #e7e7e7;
+border-radius: 5px ;
+}
+
+button:hover {
+background-color: #232f3ea1;
+color: white;
+}
+hr{
+  height: 1px;
+        background-color: black;
+        border: none;
+}
+
+</style>
+</head>
+
+
+<div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="/addproduct">Add Product</a>
+<a href="/viewcustomer">List of Customer</a>
+<a href="/viewpayment">View Payment</a>
+<a href="/viewfeedback">Product Feedback</a>
+<a href="/viewapplication"> Feedback</a>
+<a href="/message">Message</a>
+
+<a href="/adminindex">Home</a>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:white" href="/adminindex">Dream Shopping</a></span>
+  <span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>
+  <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>
+
+</div>
+
+
+
+
+
+<center>    <h3>View Feedback</h3>
+
+<!-- This is body part -->
+<table id="customers">
+  <tr>
+          <th>Id</th>
+          <th>Product Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Weight</th>
+          <th>Description</th>
+          <th width="100px">Image</th>
+          <th>Edit</th>
+                <th>Delete</th>
+
+      </tr>
+
+            {% for row in productdata%}
+              <form id="myform" method="post" action="/proddetailsedit">
+                 <input type="hidden" name="result" value="{{row.0}}">
+            <tr>
+                <td>{{row.0}}</td>
+                <td>{{row.1}}</td>
+                <td>{{row.2}}</td>
+                <td>{{row.3}}</td>
+               <td>{{row.4}}</td>
+                 <td> {{row.5}} </td>
+                <td width="100px"> <img src="static/uploads/{{row.6}}" width="50px" height="50px" >
+</td>
+<td><input type="submit" value="Edit"></td>
+
+              </form>
+              <form id="myform1" method="post" action="/proddelete">
+                 <input type="hidden" name="result" value="{{row.0}}">
+                  <td><input type="submit" value="Delete"></td>
+                  </tr>
+              </form>
+{% endfor  %}
+</table>
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+</center>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<style>-->
+<!--body {-->
+<!--font-family: "Lato", sans-serif;-->
+<!--transition: background-color .5s;-->
+<!--margin: 0;-->
+<!--}-->
+
+
+
+<!--.sidenav {-->
+<!--height: 100%;-->
+<!--width: 0;-->
+<!--position: fixed;-->
+<!--z-index: 1;-->
+<!--top: 0;-->
+<!--left: 0;-->
+<!--background-color: #111;-->
+<!--overflow-x: hidden;-->
+<!--transition: 0.5s;-->
+<!--padding-top: 60px;-->
+<!--}-->
+
+
+
+<!--.sidenav a {-->
+<!--padding: 8px 8px 8px 32px;-->
+<!--text-decoration: none;-->
+<!--font-size: 25px;-->
+<!--color: #818181;-->
+<!--display: block;-->
+<!--transition: 0.3s;-->
+<!--}-->
+
+
+
+<!--.sidenav a:hover {-->
+<!--color: #f1f1f1;-->
+<!--}-->
+
+
+
+<!--.sidenav .closebtn {-->
+<!--position: absolute;-->
+<!--top: 0;-->
+<!--right: 25px;-->
+<!--font-size: 36px;-->
+<!--margin-left: 50px;-->
+<!--}-->
+
+
+
+<!--#main {-->
+<!--transition: margin-left .5s;-->
+<!--padding: 16px;-->
+<!--color: white;-->
+<!--background-color: #4058a5;-->
+<!--}-->
+
+
+
+<!--@media screen and (max-height: 450px) {-->
+<!--.sidenav {padding-top: 15px;}-->
+<!--.sidenav a {font-size: 18px;}-->
+<!--}-->
+
+
+
+<!--/* this div and body part */-->
+
+
+
+<!--* {-->
+<!--box-sizing: border-box;-->
+<!--}-->
+
+
+
+<!--body {-->
+<!--font-family: Arial, Helvetica, sans-serif;-->
+<!--}-->
+
+
+
+<!--/* Float four columns side by side */-->
+<!--.column {-->
+<!--float: left;-->
+<!--width: 25%;-->
+<!--padding: 0 10px;-->
+<!--margin: 15px;-->
+<!--}-->
+
+
+
+<!--/* Remove extra left and right margins, due to padding */-->
+<!--.row {margin-top: 10px;-->
+<!--margin-left: 10%;-->
+<!--margin-right: 10%;-->
+<!--}-->
+
+
+
+<!--/* Clear floats after the columns */-->
+<!--.row:after {-->
+<!--content: "";-->
+<!--display: table;-->
+<!--clear: both;-->
+<!--}-->
+
+
+
+<!--/* Responsive columns */-->
+<!--@media screen and (max-width: 600px) {-->
+<!--.column {-->
+<!--width: 100%;-->
+<!--display: block;-->
+<!--margin-bottom: 20px;-->
+<!--}-->
+<!--}-->
+
+
+
+<!--/* Style the counter cards */-->
+<!--.card1 {-->
+<!--box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);-->
+<!--padding: 16px;-->
+<!--text-align: center;-->
+<!--background-color: #f1f1f1;-->
+<!--}-->
+
+
+
+<!--/* style for button */-->
+
+
+
+<!--.button {-->
+<!--background-color: #4058a5;-->
+<!--border: none;-->
+<!--border-radius: 20px;-->
+<!--color: white;-->
+<!--padding: 15px 32px;-->
+<!--text-align: center;-->
+<!--text-decoration: none;-->
+<!--display: inline-block;-->
+<!--font-size: 16px;-->
+<!--margin: 8px ;-->
+<!--cursor: pointer;-->
+<!-- -webkit-transition-duration: 0.4s; /* Safari */-->
+<!--transition-duration: 0.4s;-->
+
+
+
+<!--}-->
+
+
+
+<!--.button2:hover {-->
+<!--box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);-->
+<!--}-->
+
+
+
+<!--/* style for product card */-->
+
+
+
+<!--.card {-->
+<!--box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);-->
+<!--max-width: 300px;-->
+<!--margin: auto;-->
+<!--text-align: center;-->
+<!--font-family: arial;-->
+<!--background-color: #f1f1f1;-->
+<!--}-->
+
+
+
+<!--.price {-->
+<!--color: grey;-->
+<!--font-size: 22px;-->
+<!--}-->
+
+
+
+<!--.card button {-->
+<!--border: none;-->
+<!--outline: 0;-->
+<!--padding: 12px;-->
+<!--color: white;-->
+<!--background-color: #000;-->
+<!--text-align: center;-->
+<!--cursor: pointer;-->
+<!--width: 100%;-->
+<!--font-size: 18px;-->
+<!--}-->
+
+
+
+<!--.card button:hover {-->
+<!--opacity: 0.7;-->
+<!--}-->
+
+<!--#GFG {-->
+<!--            text-decoration: none;-->
+<!--            color: black;-->
+<!--        }-->
+
+
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+
+
+
+<!--<div id="mySidenav" class="sidenav">-->
+<!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+<!--<a href="/addproduct">Add Product</a>-->
+
+<!--<a href="/viewcustomer">List of Customer</a>-->
+<!--<a href="/viewfeedback">Product Feedback</a>-->
+<!--<a href="#">Application Feedback</a>-->
+<!--<a href="#">Query</a>-->
+
+<!--<a href="/viewpayment">View Payment</a>-->
+
+<!--<a href="/adminindex">Home</a>-->
+<!--</div>-->
+
+
+
+<!--<div id="main">-->
+<!--<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>-->
+<!--<span style="font-size:30px;cursor:pointer">Dream shopping</span>-->
+<!--<span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>-->
+<!--    <a id="GFG"  href="/logout"><span style="font-size:30px;cursor:pointer; float: right;">logout</span></a>-->
+
+<!--</div>-->
+<!--<br/>-->
+<!--<br/>-->
+<!--<center>-->
+<!--<div >-->
+
+
+<!--          <table  width="90%" border="1" bordercolor="#000000" bgcolor="#C6C6C6">-->
+
+<!--            <tr>-->
+<!--          <th>Id</th>-->
+<!--          <th>Product Name</th>-->
+<!--          <th>Category</th>-->
+<!--          <th>Price</th>-->
+<!--          <th>Weight</th>-->
+<!--          <th>Description</th>-->
+<!--          <th width="100px">Image</th>-->
+<!--          <th>Edit</th>-->
+<!--                <th>Delete</th>-->
+
+<!--      </tr>-->
+
+<!--            {% for row in productdata%}-->
+<!--              <form id="myform" method="post" action="/proddetailsedit">-->
+<!--                 <input type="hidden" name="result" value="{{row.0}}">-->
+<!--            <tr>-->
+<!--                <td>{{row.0}}</td>-->
+<!--                <td>{{row.1}}</td>-->
+<!--                <td>{{row.2}}</td>-->
+<!--                <td>{{row.3}}</td>-->
+<!--               <td>{{row.4}}</td>-->
+<!--                 <td> {{row.5}} </td>-->
+<!--                <td width="100px"> <img src="static/uploads/{{row.6}}" width="50px" height="50px" >-->
+<!--</td>-->
+<!--<td><input type="submit" value="Edit"></td>-->
+
+<!--              </form>-->
+<!--              <form id="myform1" method="post" action="/proddelete">-->
+<!--                 <input type="hidden" name="result" value="{{row.0}}">-->
+<!--                  <td><input type="submit" value="Delete"></td>-->
+<!--                  </tr>-->
+<!--              </form>-->
+<!--{% endfor  %}-->
+<!--</table>-->
+
+
+
+
+<!--</form>-->
+<!--</div>-->
+
+<!--</center>-->
+<!--<script>-->
+<!--function openNav() {-->
+<!--document.getElementById("mySidenav").style.width = "250px";-->
+<!--document.getElementById("main").style.marginLeft = "250px";-->
+<!--document.body.style.backgroundColor = "rgba(0,0,0,0.4)";-->
+<!--}-->
+
+
+
+<!--function closeNav() {-->
+<!--document.getElementById("mySidenav").style.width = "0";-->
+<!--document.getElementById("main").style.marginLeft= "0";-->
+<!--document.body.style.backgroundColor = "white";-->
+<!--}-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<style>-->
+<!--body {-->
+<!--  font-family: "Lato", sans-serif;-->
+<!--  transition: background-color .5s;-->
+<!--  margin: 0;-->
+<!--}-->
+
+<!--.sidenav {-->
+<!--  height: 100%;-->
+<!--  width: 0;-->
+<!--  position: fixed;-->
+<!--  z-index: 1;-->
+<!--  top: 0;-->
+<!--  left: 0;-->
+<!--  background-color: #111;-->
+<!--  overflow-x: hidden;-->
+<!--  transition: 0.5s;-->
+<!--  padding-top: 60px;-->
+<!--}-->
+
+<!--.sidenav a {-->
+<!--  padding: 8px 8px 8px 32px;-->
+<!--  text-decoration: none;-->
+<!--  font-size: 25px;-->
+<!--  color: #f3efef;-->
+<!--  display: block;-->
+<!--  transition: 0.3s;-->
+<!--}-->
+
+<!--.sidenav a:hover {-->
+<!--  color: #f1f1f1;-->
+<!--}-->
+
+<!--.sidenav .closebtn {-->
+<!--  position: absolute;-->
+<!--  top: 0;-->
+<!--  right: 25px;-->
+<!--  font-size: 36px;-->
+<!--  margin-left: 50px;-->
+<!--}-->
+
+<!-- /*#main {-->
+<!--   transition: margin-left .5s;-->
+<!--  padding: 16px;-->
+<!--  color: white;-->
+<!--  background-color: black;-->
+<!--  width:100%;-->
+<!--  position:fixed;-->
+<!--}*/-->
+<!--#main{-->
+<!--transition: margin-left .5s;-->
+<!--padding: 16px;-->
+<!--color: white;-->
+<!--background-color: #141516;-->
+<!--}-->
+
+
+<!--@media screen and (max-height: 450px) {-->
+<!--  .sidenav {padding-top: 15px;}-->
+<!--  .sidenav a {font-size: 18px;}-->
+<!--}-->
+
+
+<!--* {-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+<!--#customers {-->
+<!--  font-family: Arial, Helvetica, sans-serif;-->
+<!--  border-collapse: collapse;-->
+<!--  width: 100%;-->
+<!--}-->
+
+<!--#customers td, #customers th {-->
+<!--  border: 1px solid #ddd;-->
+<!--  padding: 8px;-->
+<!--}-->
+
+<!--#customers tr:nth-child(even){background-color: #f2f2f2;}-->
+
+<!--#customers tr:hover {background-color: #ddd;}-->
+
+<!--#customers th {-->
+<!--  padding-top: 12px;-->
+<!--  padding-bottom: 12px;-->
+<!--  text-align: left;-->
+<!--  background-color: #19201e;-->
+<!--  color: white;-->
+<!--}-->
+<!--.button {-->
+
+<!--background-color: white;-->
+
+<!--border: none;-->
+
+<!--color: black;-->
+
+<!--padding: 12px 60px;-->
+
+<!--text-align: center;-->
+
+<!--text-decoration: none;-->
+
+<!--display: inline-block;-->
+
+<!--font-size: 16px;-->
+
+<!--margin: 4px 2px;-->
+
+<!--cursor: pointer;-->
+
+<!--border: 0.25px solid #e7e7e7;-->
+
+<!--border-radius: 5px ;-->
+
+
+
+<!--}-->
+
+<!--button:hover {-->
+
+<!--background-color: rgba(46, 46, 168, 0.856);-->
+
+<!--color: white;-->
+
+<!--}-->
+
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <div id="mySidenav" class="sidenav">-->
+<!--        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+<!--        <a href="/addproduct">Add Product</a>-->
+
+<!--        <a href="/viewcustomer">List of Customer</a>-->
+<!--        <a href="/viewfeedback">Feedback</a>-->
+
+<!--        <a href="/viewpayment">View Payment</a>-->
+
+<!--        <a href="/adminindex">Home</a>-->
+<!--        </div>-->
+
+
+
+<!--        <div id="main">-->
+<!--        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>-->
+<!--        <span style="font-size:30px;cursor:pointer">Dream Shopping</span>-->
+<!--        <span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>-->
+<!--        <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>-->
+
+<!--</div>-->
+
+<!--       <center>    <h3>View Feedback</h3>-->
+
+
+
+
+<!--&lt;!&ndash;              <table  width="90%" border="1" bordercolor="#000000" bgcolor="#C6C6C6">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Register Id</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Register Name</th>&ndash;&gt;-->
+<!--&lt;!&ndash;               <th>Mail</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Mobile</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Current Date</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Username</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Password</th>&ndash;&gt;-->
+<!--&lt;!&ndash;               <th>Address</th>&ndash;&gt;-->
+
+<!--&lt;!&ndash;          </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                {% for row in registerlist%}&ndash;&gt;-->
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.0}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.1}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.2}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.3}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash; 	                <td>{{row.4}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.5}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                     <td> {{row.6}} </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.7}} </td>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;	</tr>&ndash;&gt;-->
+<!--&lt;!&ndash;  {% endfor  %}&ndash;&gt;-->
+<!--&lt;!&ndash;	</table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;	<input type="hidden" name="result" id="result" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </form>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="call-to-action">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="row"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</center>-->
+
+<!--&lt;!&ndash; This is body part &ndash;&gt;-->
+<!--<table id="customers">-->
+<!--   <tr>&ndash;&gt;-->
+<!--              <th>Feedback Date</th>-->
+<!--              <th>Userid</th>-->
+<!--              <th>Rating</th>-->
+<!--              <th>Review</th>-->
+<!--          </tr>-->
+
+<!--                {% for row in Feedbacklist%}-->
+<!--                <tr>-->
+<!--                    <td>{{row.0}}</td>-->
+<!--                    <td>{{row.1}}</td>-->
+<!--                    <td>{{row.2}}</td>-->
+<!--                    <td>{{row.3}}</td>-->
+<!--	</tr>-->
+<!--  {% endfor  %}-->
+<!--	</table>-->
+
+
+<!--    &lt;!&ndash; Bootstrap core JavaScript &ndash;&gt;-->
+<!--    <script src="static/vendor/jquery/jquery.min.js"></script>-->
+<!--    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
+<!--    &lt;!&ndash; Additional Scripts &ndash;&gt;-->
+<!--    <script src="static/assets/js/custom.js"></script>-->
+<!--    <script src="static/assets/js/owl.js"></script>-->
+<!--<script>-->
+<!--function openNav() {-->
+<!--document.getElementById("mySidenav").style.width = "250px";-->
+<!--document.getElementById("main").style.marginLeft = "250px";-->
+<!--document.body.style.backgroundColor = "rgba(0,0,0,0.4)";-->
+<!--}-->
+
+<!--function closeNav() {-->
+<!--document.getElementById("mySidenav").style.width = "0";-->
+<!--document.getElementById("main").style.marginLeft= "0";-->
+<!--document.body.style.backgroundColor = "white";-->
+<!--}-->
+
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;<meta name="viewport" content="width=device-width, initial-scale=1">&ndash;&gt;-->
+<!--&lt;!&ndash;<style>&ndash;&gt;-->
+<!--&lt;!&ndash;body {&ndash;&gt;-->
+<!--&lt;!&ndash;font-family: "Lato", sans-serif;&ndash;&gt;-->
+<!--&lt;!&ndash;transition: background-color .5s;&ndash;&gt;-->
+<!--&lt;!&ndash;margin: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;.sidenav {&ndash;&gt;-->
+<!--&lt;!&ndash;height: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;width: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;position: fixed;&ndash;&gt;-->
+<!--&lt;!&ndash;z-index: 1;&ndash;&gt;-->
+<!--&lt;!&ndash;top: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;left: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;background-color: #111;&ndash;&gt;-->
+<!--&lt;!&ndash;overflow-x: hidden;&ndash;&gt;-->
+<!--&lt;!&ndash;transition: 0.5s;&ndash;&gt;-->
+<!--&lt;!&ndash;padding-top: 60px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;.sidenav a {&ndash;&gt;-->
+<!--&lt;!&ndash;padding: 8px 8px 8px 32px;&ndash;&gt;-->
+<!--&lt;!&ndash;text-decoration: none;&ndash;&gt;-->
+<!--&lt;!&ndash;font-size: 25px;&ndash;&gt;-->
+<!--&lt;!&ndash;color: #818181;&ndash;&gt;-->
+<!--&lt;!&ndash;display: block;&ndash;&gt;-->
+<!--&lt;!&ndash;transition: 0.3s;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;.sidenav a:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;color: #f1f1f1;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;.sidenav .closebtn {&ndash;&gt;-->
+<!--&lt;!&ndash;position: absolute;&ndash;&gt;-->
+<!--&lt;!&ndash;top: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;right: 25px;&ndash;&gt;-->
+<!--&lt;!&ndash;font-size: 36px;&ndash;&gt;-->
+<!--&lt;!&ndash;margin-left: 50px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;#main {&ndash;&gt;-->
+<!--&lt;!&ndash;transition: margin-left .5s;&ndash;&gt;-->
+<!--&lt;!&ndash;padding: 16px;&ndash;&gt;-->
+<!--&lt;!&ndash;color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;background-color: #4058a5;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;@media screen and (max-height: 450px) {&ndash;&gt;-->
+<!--&lt;!&ndash;.sidenav {padding-top: 15px;}&ndash;&gt;-->
+<!--&lt;!&ndash;.sidenav a {font-size: 18px;}&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.abc{&ndash;&gt;-->
+
+<!--&lt;!&ndash;    margin-top: 3%;&ndash;&gt;-->
+<!--&lt;!&ndash;   margin-left: 25%;&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 50%;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 5px;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #f2f2f2;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 20px;&ndash;&gt;-->
+
+<!--&lt;!&ndash;  /* padding: 10px; */&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;/* style for form */&ndash;&gt;-->
+<!--&lt;!&ndash;input[type=text], select {&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 12px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  display: inline-block;&ndash;&gt;-->
+<!--&lt;!&ndash;  border: 1px solid #ccc;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;  box-sizing: border-box;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;input[type=submit] {&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #4CAF50;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 14px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  border: none;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;  cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;input[type=submit]:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #45a049;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;input[type=reset] {&ndash;&gt;-->
+<!--&lt;!&ndash;  width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #4CAF50;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 14px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 8px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  border: none;&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;  cursor: pointer;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;input[type=reset]:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #45a049;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;/* div {&ndash;&gt;-->
+<!--&lt;!&ndash;  border-radius: 5px;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #f2f2f2;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;} */&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div id="mySidenav" class="sidenav">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="/addproduct">Add Product</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <a href="/viewcustomer">List of Customer</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="/viewfeedback">Feedback</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <a href="/viewpayment">View Payment</a>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <a href="/adminindex">Home</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+
+
+<!--&lt;!&ndash;        <div id="main">&ndash;&gt;-->
+<!--&lt;!&ndash;        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <span style="font-size:30px;cursor:pointer">Dream Shopping</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a id="GFG"  href="/logout"><span style="font-size:30px;cursor:pointer; float: right;">logout</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<center>    <h3>View Feedback</h3> <br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;              <table width="900" border="1" bordercolor="#000000" bgcolor="#C6C6C6">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Feedback Date</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Userid</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Rating</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              <th>Review</th>&ndash;&gt;-->
+<!--&lt;!&ndash;          </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                {% for row in Feedbacklist%}&ndash;&gt;-->
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.0}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.1}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.2}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>{{row.3}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;	</tr>&ndash;&gt;-->
+<!--&lt;!&ndash;  {% endfor  %}&ndash;&gt;-->
+<!--&lt;!&ndash;	</table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;             </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="call-to-action">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="row"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    </center>&ndash;&gt;-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;function openNav() {&ndash;&gt;-->
+<!--&lt;!&ndash;document.getElementById("mySidenav").style.width = "250px";&ndash;&gt;-->
+<!--&lt;!&ndash;document.getElementById("main").style.marginLeft = "250px";&ndash;&gt;-->
+<!--&lt;!&ndash;document.body.style.backgroundColor = "rgba(0,0,0,0.4)";&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;function closeNav() {&ndash;&gt;-->
+<!--&lt;!&ndash;document.getElementById("mySidenav").style.width = "0";&ndash;&gt;-->
+<!--&lt;!&ndash;document.getElementById("main").style.marginLeft= "0";&ndash;&gt;-->
+<!--&lt;!&ndash;document.body.style.backgroundColor = "white";&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

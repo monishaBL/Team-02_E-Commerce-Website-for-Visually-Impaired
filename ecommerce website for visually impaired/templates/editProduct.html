@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit product</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+font-family: "Lato", sans-serif;
+transition: background-color .5s;
+margin: 0;
+}
+
+
+
+.sidenav {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #111;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+}
+
+
+
+.sidenav a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+
+
+.sidenav a:hover {
+color: #f1f1f1;
+}
+
+
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+}
+
+
+
+#main {
+transition: margin-left .5s;
+padding: 16px;
+color: white;
+background-color: black;
+}
+
+
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+
+.abc{
+
+    margin-top: 3%;
+   margin-left: 25%;
+   margin-bottom:3%;
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding-left: 35px;
+  padding-top:10px;
+  padding-bottom:10px;
+
+  /* padding: 10px; */
+}
+
+/* style for form */
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+input[type=reset] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=reset]:hover {
+  background-color: #45a049;
+}
+/* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #6f7781;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: black;
+  font-size: 25px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+ /*#main {
+   transition: margin-left .5s;
+  padding: 16px;
+  color: white;
+  background-color: black;
+  width:100%;
+  position:fixed;
+}*/
+#main{
+transition: margin-left .5s;
+padding: 16px;
+color: white;
+background-color: black;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+* {
+  box-sizing: border-box;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+#customers td, #customers th {
+/* border: 1px solid #ddd; */
+  padding: 3px;
+  text-align: center;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #232F3E;
+  color: white;
+}
+
+.button {
+background-color: white;
+border: none;
+color: black;
+padding: 12px 40px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+/* margin: 4px 2px; */
+cursor: pointer;
+border: 0.25px solid #e7e7e7;
+border-radius: 5px ;
+}
+
+button:hover {
+background-color: #232f3ea1;
+color: white;
+}
+hr{
+  height: 1px;
+        background-color: black;
+        border: none;
+}
+</style>
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="/addproduct">Add Product</a>
+<a href="/viewcustomer">List of Customer</a>
+ <a href="/viewpayment">View Payment</a>
+<a href="/viewfeedback">Product Feedback</a>
+
+<a href="/viewapplication">Feedback</a>
+<a href="/message">Message</a>
+
+<a href="/adminindex">Home</a>
+</div>
+
+
+
+        <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:white" href="/adminindex">Dream Shopping</a></span>
+        <span style="font-size:30px;cursor:pointer; float: right;">| Hello,Admin</span>
+        <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>
+</div>
+<div class="abc">
+<div id="customers">
+<form action="/updateprod" method="POST" enctype="multipart/form-data">
+      <center> <h2>Update Product</h2></center>
+
+       <label for="pid">Product ID</label>
+        <input type="text" id="pid" name="pid" placeholder="Product ID.." value="{{pid}}">
+
+        <label for="pname">Product Name</label>
+        <input type="text" id="pname" name="productname" placeholder="Product Name.." value="{{pname}}">
+
+        <label for="pprice">Product Price</label>
+        <input type="text" id="pprice" name="productprice" placeholder="Product Price.." value="{{pprice}}">
+
+        <label for="cate">Catogery</label>
+
+        <select name="catogery" id="cate">
+    <option value="Fashion">Fashion</option>
+    <option value="Electronics">Electronics</option>
+    <option value="Mobile">Mobile</option>
+    <option value="Homes">Homes</option>
+    <option value="Appliances">Appliances</option>
+    <option value="Mobile">Mobile</option>
+    <option value="Beauty">Beauty</option>
+    <option value="Toy">Toy</option>
+    <option value="Sport">Sport</option>
+    <option value="Blind Product">Blind Product</option>
+  </select>
+
+        <label for="pweight">Product Weight</label>
+        <input type="text" id="pweight" name="productweight" placeholder="Product Weight.." value="{{pweight}}">
+
+        <label for="des">Description</label>
+        <input type="text" id="des" name="description" placeholder="Description.." value="{{des}}">
+
+       <tr>
+                    <td class="style3"><span class="style10">Product Image</span></td>
+                    <td><input type="file" name="file" value="{{pimage}}" ></td>
+                  </tr>
+
+
+            <input type="submit" name="Submit" value="Update Product">
+         <input type="reset" name="reset" value="Cancel">
+      </form>
+
+</div>
+</div>
+<script>
+function openNav() {
+document.getElementById("mySidenav").style.width = "250px";
+document.getElementById("main").style.marginLeft = "250px";
+document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+document.getElementById("main").style.marginLeft= "0";
+document.body.style.backgroundColor = "white";
+}
+
+
+</script>
+
+</body>
+</html>

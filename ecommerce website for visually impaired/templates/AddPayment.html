@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <style>
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+        margin: 0;
+    }
+    .bodydiv{
+        width: 40%;
+        margin-top: 5%;
+        margin-left: 28%;
+        padding: 1%;
+        background-color: snow;
+        border: 0.25px solid #e7e7e7;
+        
+    }
+    .bodydiv:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+    .textsize{
+        font-size: 20px;
+        padding: 3%;
+        
+    }
+    .textsize2{
+        font-size: 20px;
+       
+        
+    }
+
+    .button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 45px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 0.25px solid #e7e7e7;
+  border-radius: 8px ;
+  
+}
+button:hover {
+  background-color: rgba(45, 45, 218, 0.856);
+  color: white;
+}
+    
+    
+</style>
+</head>
+<body>
+    <div class="bodydiv">
+       <center><h2>Payment Page</h2></center>
+        <div> <span class="textsize"><b>Id :</b> {{pid}}</span> </b>       </div> <br>
+        <div> <span class="textsize"><b>NAME :</b> {{pname}}</span> </b>    </div> <br>
+        <div> <span class="textsize"><b>Price :</b> {{pprice}}</span> </b>  </div> <br>
+        <div> <span class="textsize"><b>TAX :</b> {{tax}}</span> </b></div> <br>
+        <div> <span class="textsize"><b>Total :</b> {{total}}</span> </b></div> <br>
+
+        <form name="form1" action="/insertpayment" method="post">
+            <label class="textsize"><b>Payment Mode:</b></label><br>
+            <div style="padding: 2px; margin-left: 2%;">
+                <input  type="radio" id="pod" name="paytype" value="Pay On Delivery" required>
+                    <label class="textsize2" for="pod">Pay On Delivery</label><br>
+                <input type="radio" id="emi" name="paytype" value="EMI" required>
+                    <label class="textsize2" for="emi">EMI</label><br>
+                <input type="radio" id="online" name="paytype" value="Online" required>
+                    <label class="textsize2" for="online">Online</label><br>
+                <input type="radio" id="card" name="paytype" value="Card" required>
+                    <label class="textsize2" for="card">Card</label><br>
+                <input type="radio" id="upi" name="paytype" value="UPI" required>
+                    <label class="textsize2" for="upi">UPI</label><br>
+            </div>        
+        
+ </form>
+      
+       <center> <div>
+        <button class="button" onclick="location.href='/viewproduct';">Cancel</button><span>&nbsp</span><span>&nbsp</span><span>&nbsp</span>
+        <button class="button" onclick="form1.submit()">Payment</button>
+        </div> </center>
+
+    </div>
+</body>
+</html>

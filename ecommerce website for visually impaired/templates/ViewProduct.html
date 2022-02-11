@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head><title>Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+}
+.icon-rtl {
+  padding-right: 15px;
+  background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat right;
+  background-size: 35px;
+
+}
+.view{
+font-size:40px;
+margin-left:160px;
+margin-top:5px;
+
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+  padding: 16px;
+  color: white;
+  background-color: black;
+  width:100%;
+  position:fixed;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* this div and body part */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  padding: 25px 30px;
+
+
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+margin: 0 -5px;
+
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+
+}
+
+
+
+/* Style the counter cards */
+
+
+/* style for button */
+
+.button {
+  background-color: black;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px ;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin-right:45px;
+  margin-left:8px;
+
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* style for product card */
+
+.card {
+  max-width: 215px;
+  margin: auto;
+  font-family: arial;
+  height: 231px;
+
+
+}
+
+.card:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.buttonadd {
+  float:right;
+  border: none;
+  outline: 0;
+  color: white;
+  background-color: #ff9f00;
+  text-align: center;
+  cursor: pointer;
+  width: 50.5%;
+  font-size: 18px;
+    padding: 12px 8px;
+    padding-top: 12px;
+    padding-right: 8px;
+    padding-bottom: 12px;
+    padding-left: 2px;
+}
+
+
+.buttonbuy {
+
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #fb641b;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+</style>
+</head>
+<div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/viewprofile">Profile</a>
+  <a href="/viewcart">Cart Item</a>
+  <a href="/orderlist">Order Item</a>
+  <a href="/userappfeedback">Feedback</a>
+  <a href="/contactus">Contact</a>
+
+
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:white" href="/viewproduct">Dream Shopping</a></span>
+  <span style="font-size:30px;cursor:pointer; float: right;">| Hello,{{u}}</span>
+  <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>
+
+</div>
+
+
+    <form name="form1" action="/viewcatagoryby" method="post">
+        <input type="hidden" name="hdnbt"/>
+        <table style="margin-left:10px; padding-left:5px; margin-top:72px; position:fixed;background-color:white;">
+            <tr>
+                <td>
+        <div>
+            <img class="_396cs4  _3exPp9" alt="Fashion" src="\static\assets\images\fas (1) (2).jpg"style="margin-left:20px;width:70px;">
+        </div>
+         <button class="button button2" type="Submit" value="Fashion" name="Fashion"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Fashion</button>
+                </td>
+
+                <td>
+
+<div>
+<img class="_396cs4 _3exPp9" alt="Electronics" src="\static\assets\images\lapp (1).jpg" style="margin-left:25px;width:70px;">
+    </div>
+
+         <button class="button button2" type="Submit" value="Electronics" name="Electronics"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Electronics</button>
+
+                </td>
+
+                <td>
+
+<div >
+<img class="_396cs4 _3exPp9" alt="Mobiles" src="\static\assets\images\v9-youth-500x500 (1).png"style="margin-left:20px;width:70px;">
+    </div>
+
+         <button class="button button2" type="Submit" value="Mobile" name="Mobile"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Mobile</button>
+                </td>
+                                <td>
+
+<div>
+<img class="_396cs4 _3exPp9" alt="Home" src="\static\assets\images\loveseats (1).jpg"style="margin-left:20px;width:70px;">
+    </div>
+
+         <button class="button button2" type="Submit" value="Homes" name="Homes"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Homes</button>
+                                </td>
+                                <td>
+
+
+<div>
+<img class="_396cs4 _3exPp9" alt="Appliances" src="\static\assets\images\home (1).jpg"style="margin-left:20px;width:70px;">
+    </div>
+
+        <button class="button button2" type="Submit" value="Appliances" name="Appliances"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Appliances</button>
+                                </td>
+                                <td>
+
+
+<div>
+    <img class="_396cs4 _3exPp9" alt="Appliances" src="\static\assets\images\bty.png"style="margin-left:10px;width:90px;">
+</div>
+
+        <button class="button button2" type="Submit" value="Beauty" name="Beauty"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Beauty</button>
+                                </td>
+                                <td>
+
+
+<div>
+    <img class="_396cs4 _3exPp9" alt="Appliances" src="\static\assets\images\teddy.png"style="width:70px;">
+</div>
+
+        <button class="button button2" type="Submit" value="Toy" name="Toy"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Toy</button>
+                                </td>
+                                <td>
+
+<div>
+    <img class="_396cs4 _3exPp9" alt="Appliances" src="\static\assets\images\shoe.png"style="width:90px;">
+</div>
+
+        <button class="button button2" type="Submit" value="Sport" name="Sport"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Sport</button>
+                                </td>
+                                <td>
+
+        <div>
+    <img class="_396cs4 _3exPp9" alt="Appliances" src="\static\assets\images\stick.png"style="margin-left:15px;width:90px;">
+
+</div>
+
+        <button class="button button2" type="Submit" value="Blind Product" name="BLind Product"
+                   onclick="{
+                        document.form1.hdnbt.value = this.value;
+                        document.form1.submit();
+                   }"/>Blind Product</button>
+                                </td>
+            </tr>
+        </table>
+        </form>
+<!--  <button class="button button2">Blind Product</button>-->
+
+
+
+
+<!-- this is div and body part -->
+
+<div style="position:fixed; margin-top:230px;margin-left:-25px;background-color:whitesmoke;  border: 0.25px solid #e7e7e7;">
+    <center style="padding-top:25px; padding-left:550px; padding-right:1200px;margin-right:10px"> <br>
+    <div>
+    <table style="margin-top:-25px;">
+
+	    <tr>
+            <form id="myform" method="post" action="{{ url_for('filterprod') }}">
+
+            <td><input type="text" placeholder="   Filter Range From" name="from"style="margin-left:-515px;  height:40px;border-radius: 25px; margin-top:-10px;"></td>
+
+            <td><input type="text" placeholder="     Filter Range To" name="to" style="margin-left:-340px;border-radius: 25px;height:40px;test-align:center; margin-top:-10px;"></td>
+
+            <td><input type="submit" name="Submit" value=" " class="icon-rtl" style="border-radius:13px;margin-left:-165px; border:none;  padding: 5px; margin-top:-10px;padding-right:5px;color:black; background-color: #bbb;width:40px;height:40px; font-size:22px;"></td>
+            </form>
+            <td><b class="view" id="admin_well_page">Products</b></td>
+
+            <td><button  onclick="location.href='/speek';"style="margin-left:400px;padding: 5.8px; padding-right:20px; padding-bottom:5px; color: white;
+            background-color: black;margin-top:-15px; border-radius:50px;width:70px;height:70px;"><i style="font-size:30px;padding-left:12px;" class='fa fa-microphone'></i>
+            </button>
+            </td>
+
+        </tr>
+    </table>
+    </div>
+    </center>
+</div>
+<!--    *****-->
+<div class="row" style="padding-top:325px;">
+{% for row in productlist%}
+            <div class="column">
+                <div class="card">
+                    <div>
+                        <img src="static/uploads/{{row.6}}" alt="{{row.6}}" style="width:100%">
+                    </div>
+
+                    <div style="font-size:20px;text-align:center;"><b>{{row.1}}</b></div>
+                            <div style="text-align:center">{{row.5}}</div>
+<!--                            <td colspan="2" style="color: gray; font-size: 22px;;">{{row.3}}</td>-->
+                    <div style="text-align:center;"><b>&#x20b9;{{row.3}}</b></div>
+                            <div>
+                                <form name="frm1" action="/proddetails" method="post">
+                                    <input type="hidden" name="result" value="{{row.0}}">
+<!--                                <input type="Submit"  value="Buy Now">-->
+                                    <button class="buttonbuy" style="margin-top:12px" type="submit" >Buy Now</button>
+                                </form>
+                            </div>
+                                <div>
+                                <form name="frm1" action="/prodadd" method="post">
+                                    <input type="hidden" name="result" value="{{row.0}}">
+<!--                                <input type="Submit"  value="Add to Cart">-->
+                                    <button class="buttonadd" type="submit" style="margin-top: -45px;"  >Add to Cart</button>
+                                </form>
+                            </div>
+                </div>
+            </div>
+
+        {% endfor  %}
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "white";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+
+}
+ setInterval(myTimer, 500);
+            var color = ["SteelBlue", "Orchid", "LightSalmon","MediumPurple"];
+            var i = 0;
+            function myTimer(){
+                document.getElementById("admin_well_page").style.color = color[i%4];
+                i++;
+            }
+
+</script>
+
+</body>
+</html>

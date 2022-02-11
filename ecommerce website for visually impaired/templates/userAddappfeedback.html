@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head><title>Application Feedback</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+  padding: 16px;
+  color: white;
+  background-color: black;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* this div and body part */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+  margin: 15px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin-top: 10px;
+margin-left: 10%;
+margin-right: 10%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+
+
+/* style for button */
+
+.button {
+  background-color: #4058a5;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px ;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* style for product card */
+
+.card {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  max-width: 300px;
+  margin: auto;
+<!--  text-align: center;-->
+  font-family: arial;
+  height: 305px;
+  /* background-color: #f1f1f1; */
+
+}
+
+.card:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.buttonadd {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #ff9f00;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.buttonbuy {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #fb641b;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+<!--feedback-->
+
+
+ html, body {
+      min-height: 80%;
+      }
+      body, div, form, input, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: rgb(8, 8, 8);
+      line-height: 22px;
+      }
+      h1 {
+      font-weight: 400;
+      ;
+      }
+      h4 {
+      margin: 15px 0 4px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
+      width: 70%;
+      padding: 20px;
+      background: rgb(252, 250, 250);
+      box-shadow: 0 2px 5px rgb(83, 80, 80);
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      vertical-align: middle;
+      }
+      .email {
+      display: block;
+      width: 45%;
+      }
+      input:hover, textarea:hover {
+      outline: none;
+      border: 1px solid #34749c;
+      }
+      th, td {
+      width: 15%;
+      padding: 15px 0;
+      border-bottom: 1px solid rgb(38, 36, 160);
+      text-align: center;
+      vertical-align: unset;
+      line-height: 18px;
+      font-weight: 400;
+      word-break: break-all;
+      }
+      .first-col {
+      width: 10%;
+      text-align: left;
+      }
+      table {
+      width: 80%;
+      }
+      textarea {
+      width: calc(100% - 4px);
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background-color: #078bdd;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #0666a3;
+      }
+      @media (min-width: 568px) {
+      th, td {
+      word-break: keep-all;
+      }
+      }
+</style>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/viewprofile">Profile</a>
+  <a href="/viewcart">Cart Item</a>
+  <a href="/orderlist">Order Item</a>
+  <a href="/userappfeedback">Feedback</a>
+  <a href="/contactus">Contact</a>
+  <a href="/viewproduct">Home</a>
+
+
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <span style="font-size:30px;cursor:pointer"><a style="text-decoration: none;color:white" href="/viewproduct">Dream Shopping</a></span>
+  <span style="font-size:30px;cursor:pointer; float: right;">| Hello,{{u}}</span>
+  <span style="font-size:30px; float: right;"><a style="text-decoration: none;color:white" href="/logout">logout</a></span>
+
+</div>
+</div>
+
+
+
+
+<!-- this is div and body part -->
+ <div class="testbox">
+      <form action="/userinsertfeedback" method="POST">
+
+        <h1>Customer Feedback Form</h1>
+        <p>Please take a few minutes to give us feedback about our service by filling in this short Customer Feedback Form. We are conducting this research in order to measure your level of satisfaction with the quality of our service. We thank you for your participation.</p>
+        <hr />
+        <h3>Overall experience with our service</h3>
+        <table>
+          <tr>
+            <th class="first-col"></th>
+            <th>Very Good</th>
+            <th>Good</th>
+            <th>Fair</th>
+            <th>Poor</th>
+            <th>Very Poor</th>
+          </tr>
+          <tr>
+            <td class="first-col">How would you rate your overall experience with our service?</td>
+            <td><input type="radio" value="very good" name="ser_rating" /></td>
+            <td><input type="radio" value="good" name="ser_rating" /></td>
+            <td><input type="radio" value="fair" name="ser_rating" /></td>
+            <td><input type="radio" value="poor" name="ser_rating" /></td>
+            <td><input type="radio" value="very poor" name="ser_rating" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">How satisfied are you with the comprehensiveness of our offer?</td>
+            <td><input type="radio" value="very good" name="offer_satisfied" /></td>
+            <td><input type="radio" value="good" name="offer_satisfied" /></td>
+            <td><input type="radio" value="fair" name="offer_satisfied" /></td>
+            <td><input type="radio" value="poor" name="offer_satisfied" /></td>
+            <td><input type="radio" value="very poor" name="offer_satisfied" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">How would you rate our prices?</td>
+            <td><input type="radio" value="very good" name="rating_price" /></td>
+            <td><input type="radio" value="good" name="rating_price" /></td>
+            <td><input type="radio" value="fair" name="rating_price" /></td>
+            <td><input type="radio" value="poor" name="rating_price" /></td>
+            <td><input type="radio" value="very poor" name="rating_price" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">How satisfied are you with the timeliness of order delivery?</td>
+            <td><input type="radio" value="very good" name="order_delivery" /></td>
+            <td><input type="radio" value="good" name="order_delivery" /></td>
+            <td><input type="radio" value="fair" name="order_delivery" /></td>
+            <td><input type="radio" value="poor" name="order_delivery" /></td>
+            <td><input type="radio" value="very poor" name="order_delivery" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">How satisfied are you with the customer support?</td>
+            <td><input type="radio" value="very good" name="customer_support" /></td>
+            <td><input type="radio" value="good" name="customer_support" /></td>
+            <td><input type="radio" value="fair" name="customer_support" /></td>
+            <td><input type="radio" value="poor" name="customer_support" /></td>
+            <td><input type="radio" value="very poor" name="customer_support" /></td>
+          </tr>
+          <tr>
+            <td class="first-col">Would you recommend our product / service to other people?</td>
+            <td><input type="radio" value="very good" name="Recommend_product" /></td>
+            <td><input type="radio" value="good" name="Recommend_product" /></td>
+            <td><input type="radio" value="fair" name="Recommend_product" /></td>
+            <td><input type="radio" value="poor" name="Recommend_product" /></td>
+            <td><input type="radio" value="very poor" name="Recommend_product" /></td>
+          </tr>
+        </table>
+        <td><h4><span class="style3">What should we change in order to live up to your expectations?</span></h4></td>
+        <td><textarea rows="5"name="review"></textarea></td>
+        <h4>Email</h4>
+        <small>Only if you want to hear more from us.</small>
+        <input class="email" type="text" name="Email" required>
+        <div class="btn-block">
+          <button type="submit">Send Feedback</button>
+<!--          <input type="submit" class="button" value="Send Feedback">-->
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+</body>
+</html>

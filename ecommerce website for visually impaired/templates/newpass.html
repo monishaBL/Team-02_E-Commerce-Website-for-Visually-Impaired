@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset password</title>
+    <style>
+        body{
+	margin-top:15px;
+	margin-bottom:15px;
+	color:#6a6f8c;
+	background:#c8c8c8;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+    background-repeat:no-repeat;
+    background-image:url("static\assets\images\about-01.jpg");
+
+<!--	background-image:url("C:\Users\sujan_bhargav\PycharmProjects\Python_Training\Shopping\Online Shopping - blinds\static\signin_signup.jpg") no-repeat center;-->
+<!--    background="C:\Users\sujan_bhargav\PycharmProjects\Python_Training\Shopping\Online Shopping - blinds\static\signin_signup.jpg"-->
+<!--	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);-->
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:50px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:none;
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+
+
+
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#1161ee;
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:none;
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:none;
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:#1161ee;
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:none;
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:none;
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:none;
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:none;
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
+}
+        </style>
+</head>
+<body>
+    <div class="login-wrap">
+
+        <div class="login-html">
+
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="color: white;">Profile</label>
+
+            <div class="login-form">
+                <br/>
+
+
+                 <div class="group">
+                       <label for="mail2">Email:</label>
+                      <input type="email" id="mail2"  name="email" placeholder="Enter Email.." value="{{email}}" class="input"  readonly>
+                    </div>
+<form action="{{ url_for('newpass') }}" method="POST">
+                    <div class="group">
+                        <label for="pass" class="label">Enter New Password</label>
+                        <input id="pass" type="password"  name="password" placeholder="Enter Password.." class="input" data-type="password">
+                    </div>
+
+                 <div class="group">
+                        <input type="submit" class="button" value="Submit">
+                    </div>
+
+</form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

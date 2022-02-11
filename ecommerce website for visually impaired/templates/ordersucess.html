@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order status</title>
+    <style>
+
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+        margin: 0;
+    }
+    .bodydiv{
+        width: 95%;
+        margin-top: 5%;
+        margin-left: 1.5%;
+        padding: 1%;
+        background-color: snow;
+        border: 0.25px solid #e7e7e7;
+        
+    }
+    .bodydiv:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .textsize{
+        font-size: 20px;
+        padding: 3%;
+        
+    }
+    
+
+    .button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 85px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 0.25px solid #e7e7e7;
+  border-radius: 8px ;
+  
+}
+button:hover {
+  background-color: rgba(45, 45, 218, 0.856);
+  color: white;
+}
+
+img{
+        max-width: 100%;
+        max-height: 100%;
+        display: block; /* remove extra space below image */
+    }
+    .box{
+        width: 250px;  
+        margin-left: 75%;
+        margin-top: -6%;
+           
+        /* border: 5px solid black; */
+    }    
+    
+    
+</style>
+</head>
+<body>
+    <div class="bodydiv">
+       <center><h2>Order Status</h2></center>
+
+       <h2 style="padding-left: 3%;">Hello {{u}},</h2>
+       <h2 style="padding-left: 3%;">Your Order Placed Successfully !!!</h2>
+
+       <div class="box">
+        <div> <span class="textsize"><b>Order Date :</b> {{odate}}</span> </b></div> <br>
+        <img src="static/uploads/{{opimage}}" alt="img"><br>
+        <div> <span class="textsize"><b>status :</b> Confirm</span> </b></div> <br>
+        <div> <span class="textsize"><b>Deliver in :</b> 5 - 7 Days</span> </b></div> <br>
+        </div>
+
+        <div style="margin-top: -15%;">
+        <div> <span class="textsize"><b>Order Id :</b> {{oid}}</span> </b>       </div> <br>
+        <div> <span class="textsize"><b>Transaction id :</b> {{otnxid}}</span> </b>  </div> <br>
+        <div> <span class="textsize"><b>Name :</b> {{opname}}</span> </b>    </div> <br>
+        <div> <span class="textsize"><b>Address :</b> {{address}}</span> </b></div> <br>
+        </div>
+
+      
+       <center> <div style="margin-top: 5%;">
+        <button class="button" onclick="location.href='/viewproduct';">Continue Shopping</button><span>&nbsp</span><span>&nbsp</span><span>&nbsp</span>
+        <button class="button" onclick="location.href='/feedback';">Feedback</button>
+        </div> </center>
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <style>
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+        margin: 0;
+    }
+    .bodydiv{
+        width: 40%;
+        margin-top: 10%;
+        margin-left: 28%;
+        padding: 1%;
+        background-color: snow;
+        border: 0.25px solid #e7e7e7;
+        
+    }
+    .bodydiv:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+    .textsize{
+        font-size: 20px;
+        padding: 3%;
+        
+        
+    }
+
+    .button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 42px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 0.25px solid #e7e7e7;
+  border-radius: 8px ;
+  
+}
+button:hover {
+  background-color: rgba(45, 45, 218, 0.856);
+  color: white;
+}
+    
+    
+</style>
+</head>
+<body>
+    <div class="bodydiv">
+       <center><h2>Product Summary</h2></center>
+        <div> <span class="textsize"><b>Id :</b> {{pid}}</span> </b>       </div> <br>
+        <div> <span class="textsize"><b>NAME :</b> {{pname}}</span> </b>    </div> <br>
+        <div> <span class="textsize"><b>Catagory :</b> {{cate}}</span> </b> </div> <br>
+        <div> <span class="textsize"><b>Price :</b> {{pprice}}</span> </b>  </div> <br>
+        <div> <span class="textsize"><b>Weight :</b> {{pweight}}</span> </b></div> <br>
+        <div> <span class="textsize"><b>Description :</b> {{des}}</span> </b></div> <br>
+      
+       <center> <div>
+        <button class="button" onclick="location.href='/viewproduct';">Cancel</button><span>&nbsp</span><span>&nbsp</span><span>&nbsp</span>
+        <button class="button" onclick="location.href='/addpayment';">Proceed</button>
+        </div> </center>
+    </div>
+</body>
+</html>
